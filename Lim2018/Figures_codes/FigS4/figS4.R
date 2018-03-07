@@ -10,20 +10,21 @@ mm.ch2 <- DATA[DATA$Channel%in%c("Mafb_int"),]
 
 #summarize mean
 mm_all<- ddply(DATA, .(Channel, Region, n), summarise, mean_int= mean(Intensity), se = std.error(Intensity)) 
+mm2<- ddply(mm_all, .(Channel, Region), summarise, MI= mean(mean_int), se = std.error(mean_int)) 
 levels(mm_all$Channel) <- c("Mafb", "Tomato")
 
 
 mma.ch1 <- mm_all[mm_all$Channel%in%c("Tomato"),]
 mma.ch2 <- mm_all[mm_all$Channel%in%c("Mafb"),]
 #ploting
-#figSxc(right)
+#figS4(right)
 gp1<- ggplot(mma.ch1, aes(y=mean_int, x=Region))+
   stat_summary_bin(aes(y = mean_int), fun.y = "mean", geom = "bar", color = "black", fill = "white")+
   stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2, color = "black")+
   geom_dotplot(binaxis="y",stackdir="center", dotsize=3,  color = "red", fill = "red") +
   theme_classic() +
   labs (x = 'Region', y = 'Tdt_mean_intensity')
-#figSxc(left)
+#figS4(left)
 gp2<- ggplot(mma.ch2, aes(y=mean_int, x=Region))+
   #facet_grid(Channel ~ ., scales = "free")+
   stat_summary_bin(aes(y = mean_int), fun.y = "mean", geom = "bar", color = "black", fill = "white")+
