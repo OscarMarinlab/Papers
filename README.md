@@ -1,5 +1,5 @@
-# All raw data and associated codes used to generate the figures in papers published in Oscar Marin lab will be deposited. 
+# This repository consist of all raw data and associated codes used to generate the figures in papers/manuscript published by Oscar Marin lab. The codes associated with each publication are organised by folders and the figure numbers in the respective publication/ manuscript. 
 
-# Please reference the respective publications if any analyses code are being used. 
+# Please reference the respective publication(s) if any analyses code are being used. 
 
-# All codes associated with publications are organised by the figure numbers in the publication/ manuscript.  
+ 
